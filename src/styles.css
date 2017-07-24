@@ -1,0 +1,16 @@
+@import url("../node_modules/angular-calendar/dist/css/angular-calendar.css");
+.main-container .sub-nav, .main-container .subnav{
+  flex: 0 0 48px;
+}
+
+.nav{
+  height: 48px;
+}
+
+.nav .nav-link:hover, .nav .nav-link.active{
+  box-shadow: 0 -3px 0 #4BC1BB inset;
+}
+
+input[type=text]:not([readonly]):focus, input[type=password]:not([readonly]):focus, input[type=number]:not([readonly]):focus, input[type=email]:not([readonly]):focus, input[type=url]:not([readonly]):focus, input[type=tel]:not([readonly]):focus, input[type=date]:not([readonly]):focus, input[type=time]:not([readonly]):focus, input[type=datetime-local]:not([readonly]):focus{
+  border-bottom: 1px solid #4BC1BB;
+}

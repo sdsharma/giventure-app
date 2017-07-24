@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { ROUTING } from "./app.routing";
 import { VolunteerComponent } from "./volunteer/volunteer.component";
 import { ProfileComponent } from "./profile/profile.component";
+import { SharedModule } from "./shared/shared.module"
 
 @NgModule({
     declarations: [
@@ -21,7 +22,8 @@ import { ProfileComponent } from "./profile/profile.component";
         FormsModule,
         HttpModule,
         ClarityModule.forRoot(),
-        ROUTING
+        ROUTING,
+        SharedModule
     ],
     providers: [],
     bootstrap: [AppComponent]

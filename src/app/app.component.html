@@ -11,15 +11,16 @@
       </label>
     </form>
     <div class="header-actions">
+      <a id="log-out" href="#" class="nav-link"> Log Out</a>
     </div>
   </clr-header>
   <nav class="sub-nav" [clr-nav-level]="1">
     <ul class="nav">
       <li class="nav-item">
-        <a class="nav-link" href="#" [routerLink]="['/volunteer']" routerLinkActive="active">Volunteer</a>
+        <a class="nav-link" href="#" [routerLink]="['/volunteer']" routerLinkActive="active"><clr-icon shape="calendar"></clr-icon> Volunteer</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#" [routerLink]="['/profile']" routerLinkActive="active">Profile</a>
+        <a class="nav-link" href="#" [routerLink]="['/profile']" routerLinkActive="active"><clr-icon shape="user"></clr-icon> Profile</a>
       </li>
     </ul>
   </nav>

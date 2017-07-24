@@ -1,0 +1,22 @@
+.give-banner{
+  width: calc(100% + 48px);
+  background-color: #4BC1BB;
+  margin-left: -24px;
+  margin-top: -24px;
+  text-align: center;
+
+  .callout-banner{
+    margin: 0;
+    color: #fff;
+    font-size: 22px;
+  }
+
+  .count{
+    font-size: 32px;
+  }
+
+  .edit{
+    cursor: pointer;
+    font-size: 16px;
+  }
+}
