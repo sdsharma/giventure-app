@@ -5,5 +5,5 @@ import { Component } from "@angular/core";
     templateUrl: './volunteer.component.html',
 })
 export class VolunteerComponent {
-
+    viewDate: Date = new Date();
 }

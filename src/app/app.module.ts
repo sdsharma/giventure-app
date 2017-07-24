@@ -8,7 +8,8 @@ import { AppComponent } from './app.component';
 import { ROUTING } from "./app.routing";
 import { VolunteerComponent } from "./volunteer/volunteer.component";
 import { ProfileComponent } from "./profile/profile.component";
-import { SharedModule } from "./shared/shared.module"
+import { SharedModule } from "./shared/shared.module";
+import { CalendarModule } from 'angular-calendar';
 
 @NgModule({
     declarations: [
@@ -23,7 +24,8 @@ import { SharedModule } from "./shared/shared.module"
         HttpModule,
         ClarityModule.forRoot(),
         ROUTING,
-        SharedModule
+        SharedModule,
+        CalendarModule.forRoot()
     ],
     providers: [],
     bootstrap: [AppComponent]
