@@ -14,3 +14,23 @@
 input[type=text]:not([readonly]):focus, input[type=password]:not([readonly]):focus, input[type=number]:not([readonly]):focus, input[type=email]:not([readonly]):focus, input[type=url]:not([readonly]):focus, input[type=tel]:not([readonly]):focus, input[type=date]:not([readonly]):focus, input[type=time]:not([readonly]):focus, input[type=datetime-local]:not([readonly]):focus{
   border-bottom: 1px solid #4BC1BB;
 }
+
+.btn.btn-success, .btn-success{
+  border-color: #4BC1BB;
+  background-color: #4BC1BB;
+}
+
+.btn.btn-success:hover {
+  background-color: #246a67;
+}
+
+.btn.btn-success-outline, .btn.btn-outline-success, .btn-success-outline .btn, .btn-outline-success .btn{
+  border-color: #4BC1BB;
+  background-color: transparent;
+  color: #4BC1BB;
+}
+
+.btn.btn-success-outline:hover, .btn.btn-outline-success:hover, .btn-success-outline .btn:hover, .btn-outline-success .btn:hover{
+  color: #246a67;
+  background-color: #c2eae8;
+}
