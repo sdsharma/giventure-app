@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ClarityModule } from 'clarity-angular/clarity.module';
 import { BannerComponent } from './banner/banner.component';
+import { GoogleplaceDirective } from './directives/googleplace.directive';
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import { BannerComponent } from './banner/banner.component';
     RouterModule
   ],
   declarations: [
-    BannerComponent
+    BannerComponent,
+    GoogleplaceDirective
 ],
   exports: [
     CommonModule,
@@ -22,7 +24,8 @@ import { BannerComponent } from './banner/banner.component';
     RouterModule,
     ClarityModule,
     ReactiveFormsModule,
-    BannerComponent
+    BannerComponent,
+    GoogleplaceDirective
   ]
 })
 export class SharedModule {
