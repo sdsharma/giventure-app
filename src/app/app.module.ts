@@ -6,14 +6,14 @@ import { HttpModule } from '@angular/http';
 import { ClarityModule } from 'clarity-angular';
 import { AppComponent } from './app.component';
 import { ROUTING } from "./app.routing";
-import { HomeComponent } from "./home/home.component";
-import { AboutComponent } from "./about/about.component";
+import { VolunteerComponent } from "./volunteer/volunteer.component";
+import { ProfileComponent } from "./profile/profile.component";
 
 @NgModule({
     declarations: [
         AppComponent,
-        AboutComponent,
-        HomeComponent
+        ProfileComponent,
+        VolunteerComponent
     ],
     imports: [
         BrowserAnimationsModule,
