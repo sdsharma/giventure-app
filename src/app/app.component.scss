@@ -6,10 +6,20 @@
 }
 
 #search_input{
-  width: 250px;
+  width: 100%;
+  font-size: 18px;
 }
 
 #log-out{
   top: 20px;
   right: 24px;
+}
+
+.search{
+  max-width: 75%;
+  width: 100%;
+}
+
+.search-label{
+  width: 100%;
 }
