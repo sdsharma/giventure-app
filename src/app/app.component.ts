@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
     selector: 'my-app',
@@ -7,15 +7,23 @@ import { Router } from '@angular/router';
     styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-    public address : Object;
-    getAddress(place:Object) {
+
+    route: String = '/login';
+
+    constructor(private router: Router) {
+        router.events.subscribe((route)=>{
+            if(route instanceof NavigationEnd){
+                this.route = route.url;
+            }
+        });
+    }
+
+    public address: Object;
+    getAddress(place: Object) {
         this.address = place['formatted_address'];
         var location = place['geometry']['location'];
         var lat =  location.lat();
         var lng = location.lng();
         console.log("Address Object", place);
-    }
-
-    constructor(private router: Router) {
     }
 }

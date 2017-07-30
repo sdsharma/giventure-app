@@ -10,13 +10,15 @@ import { VolunteerComponent } from "./volunteer/volunteer.component";
 import { ProfileComponent } from "./profile/profile.component";
 import { SharedModule } from "./shared/shared.module";
 import { CalendarModule } from 'angular-calendar';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         ProfileComponent,
-        VolunteerComponent
-    ],
+        VolunteerComponent,
+    LoginComponent
+],
     imports: [
         BrowserAnimationsModule,
         BrowserModule,

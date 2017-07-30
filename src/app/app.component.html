@@ -1,4 +1,7 @@
-<clr-main-container>
+<clr-main-container *ngIf="route == '/login'">
+  <router-outlet></router-outlet>
+</clr-main-container>
+<clr-main-container *ngIf="route != '/login'">
   <clr-header>
     <div class="branding">
       <a href="#" class="nav-link">

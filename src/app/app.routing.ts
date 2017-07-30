@@ -3,12 +3,14 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { ProfileComponent } from './profile/profile.component';
 import { VolunteerComponent } from './volunteer/volunteer.component';
+import { LoginComponent } from './login/login.component';
 
 
 export const ROUTES: Routes = [
-    {path: '', redirectTo: 'volunteer', pathMatch: 'full'},
+    {path: '', redirectTo: 'login', pathMatch: 'full'},
     {path: 'volunteer', component: VolunteerComponent},
-    {path: 'profile', component: ProfileComponent}
+    {path: 'profile', component: ProfileComponent},
+    {path: 'login', component: LoginComponent}
 ];
 
 export const ROUTING: ModuleWithProviders = RouterModule.forRoot(ROUTES);
