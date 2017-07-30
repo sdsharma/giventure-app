@@ -9,6 +9,7 @@ import { Router, NavigationEnd } from '@angular/router';
 export class AppComponent {
 
     route: String = '/login';
+    locationName: string = '';
 
     constructor(private router: Router) {
         router.events.subscribe((route)=>{
@@ -20,10 +21,6 @@ export class AppComponent {
 
     public address: Object;
     getAddress(place: Object) {
-        this.address = place['formatted_address'];
-        var location = place['geometry']['location'];
-        var lat =  location.lat();
-        var lng = location.lng();
-        console.log("Address Object", place);
+        this.locationName = (<any>place).name;
     }
 }

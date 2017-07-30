@@ -11,14 +11,29 @@ import { ProfileComponent } from "./profile/profile.component";
 import { SharedModule } from "./shared/shared.module";
 import { CalendarModule } from 'angular-calendar';
 import { LoginComponent } from './login/login.component';
+import { AppState, INITIAL_APP_STATE } from './store/state';
+import { StoreModule, combineReducers, ActionReducer } from "@ngrx/store";
+import { EffectsModule } from '@ngrx/effects';
+
+import { AppReducer } from './store/reducers/appReducer';
+
+const reducers = {
+  appState: AppReducer,
+}
+
+const combinedReducers: ActionReducer<AppState> = combineReducers(reducers);
+
+export function appReducers(state: AppState = INITIAL_APP_STATE, action: any) {
+  return combinedReducers(state, action);
+}
 
 @NgModule({
     declarations: [
         AppComponent,
         ProfileComponent,
         VolunteerComponent,
-    LoginComponent
-],
+        LoginComponent
+    ],
     imports: [
         BrowserAnimationsModule,
         BrowserModule,
@@ -27,7 +42,8 @@ import { LoginComponent } from './login/login.component';
         ClarityModule.forRoot(),
         ROUTING,
         SharedModule,
-        CalendarModule.forRoot()
+        CalendarModule.forRoot(),
+        StoreModule.provideStore(appReducers)
     ],
     providers: [],
     bootstrap: [AppComponent]
