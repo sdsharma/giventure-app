@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AppState } from './store/state';
@@ -13,7 +13,7 @@ export class AppComponent {
 
     route: String = '/login';
 
-    constructor(private router: Router, private store: Store<AppState>) {
+    constructor(private router: Router, private store: Store<AppState>, private change: ChangeDetectorRef) {
         router.events.subscribe((route)=>{
             if(route instanceof NavigationEnd){
                 this.route = route.url;
@@ -24,5 +24,6 @@ export class AppComponent {
     public address: Object;
     getAddress(place: Object) {
         this.store.dispatch({ type: AppActions.SET_LOCATION, payload: (<any>place).name });
+        this.change.detectChanges();
     }
 }

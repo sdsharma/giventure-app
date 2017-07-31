@@ -8,7 +8,7 @@
         <span class="clr-icon clr-logo"></span>
       </a>
     </div>
-    <form class="search">
+    <form class="search" *ngIf="route == '/volunteer'">
       <label for="search_input" class="search-label">
         <input id="search_input" type="text" placeholder="Search for Oppurtunities by Location" [(ngModel)] = "address"  (setAddress) = "getAddress($event)" name="search" googleplace>
       </label>
