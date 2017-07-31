@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { AppState } from './store/state';
+import { AppActions } from './store/actions/appActions';
 
 @Component({
     selector: 'my-app',
@@ -9,9 +12,8 @@ import { Router, NavigationEnd } from '@angular/router';
 export class AppComponent {
 
     route: String = '/login';
-    locationName: string = '';
 
-    constructor(private router: Router) {
+    constructor(private router: Router, private store: Store<AppState>) {
         router.events.subscribe((route)=>{
             if(route instanceof NavigationEnd){
                 this.route = route.url;
@@ -21,6 +23,6 @@ export class AppComponent {
 
     public address: Object;
     getAddress(place: Object) {
-        this.locationName = (<any>place).name;
+        this.store.dispatch({ type: AppActions.SET_LOCATION, payload: (<any>place).name });
     }
 }
