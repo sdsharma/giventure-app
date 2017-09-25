@@ -9,6 +9,9 @@ export function AppReducer(state: AppState = INITIAL_APP_STATE, action: Action) 
         case AppActions.SET_LOCATION:
             newState.location = action.payload;
             return newState;
+        case AppActions.GET_USERS:
+        	newState.users = action.payload;
+        	return newState;
         default:
             return state;
     }
