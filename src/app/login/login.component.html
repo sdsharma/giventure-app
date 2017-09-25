@@ -13,9 +13,38 @@
                     <input class="password" type="password" id="login_password" placeholder="Password" formControlName="password">
                 </div>
             </form>
+            <p *ngIf="loggedIn == false">Login Failed</p>
             <button type="submit" class="btn btn-success" (click)="login()">Login</button>
-            <a [routerLink]="['/volunteer']" routerLinkActive="active" class="signup">Register for an Account</a>
-            <a [routerLink]="['/volunteer']" routerLinkActive="active" class="signup">Reset Password</a>
+            <a class="signup" (click)="register = true">Register for an Account</a>
+            <a class="signup" (click)="reset = true">Reset Password</a>
         </div>
     </form>
 </div>
+
+<clr-modal [(clrModalOpen)]="register" [clrModalClosable]="false">
+    <h3 class="modal-title">Register for a Giventure Account</h3>
+    <div class="modal-body">
+        <p>Placeholder</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="register = false">
+            Register
+        </button>
+    </div>
+</clr-modal>
+
+<clr-modal [(clrModalOpen)]="reset" [clrModalClosable]="false">
+    <h3 class="modal-title">Reset your Giventure Account Password</h3>
+    <div class="modal-body">
+        <form [formGroup]="resetModel">
+            <div>
+                <input class="username" type="text" placeholder="Email Address" formControlName="email">
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="resetEmail()">
+            Send Reset Email
+        </button>
+    </div>
+</clr-modal>

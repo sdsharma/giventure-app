@@ -19,7 +19,14 @@ export class LoginComponent implements OnInit {
     password: new FormControl('', Validators.required)
   });
 
+  resetModel: FormGroup = new FormGroup({
+    email: new FormControl('', Validators.required)
+  }); 
+
   loggedIn: null;
+
+  register: false;
+  reset: false;
 
   ngOnInit() {
   	this.store.select((state: AppState) => {
@@ -33,6 +40,14 @@ export class LoginComponent implements OnInit {
   	if(this.model.valid) {
   		this.store.dispatch({type: AppActions.LOGIN, 
   			payload: {username: <string>this.model.value.username, password: <string>this.model.value.password}});
+  	}
+  }
+
+  resetEmail() {
+  	if(this.resetModel.valid) {
+  		this.reset = false;
+  		this.store.dispatch({type: AppActions.RESET,
+  			payload: {email: <string>this.resetModel.value.email}});
   	}
   }
 

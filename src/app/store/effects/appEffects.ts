@@ -75,6 +75,7 @@ export class AppEffects {
                 requestContent.content,
                 { headers: requestContent.headers }
             )
+            .map(this.extractData)
             .catch((err) => {
                 return Observable.of(<any>{
                     type: AppActions.LOGIN_FAILED
