@@ -2,7 +2,7 @@ import { Effect, Actions, toPayload } from "@ngrx/effects";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { Http, Response, Headers } from "@angular/http";
-import { Users } from "./../../types";
+import { newUser } from "./../../types";
 import { AppActions } from "../actions/appActions"
 
 @Injectable()
@@ -44,8 +44,27 @@ export class appEffects {
                 });
         });
 
+    @Effect() createUser$ = this.action$
+        .ofType(AppActions.CREATE_USER)
+        .map(toPayload)
+        .switchMap(payload => {
+            let requestContent = this.prepareRequest(<newUser>payload);
+            return <Observable<any>>this._http.post(
+                '/users',
+                requestContent.content,
+                { headers: requestContent.headers }
+            )
+                .map(this.extractData)
+                .catch(this.handleError)
+                .switchMap(result => {
+                    return Observable.of(<any>{
+                        type: AppActions.CREATED_USER,
+                        payload: result === undefined ? [] : result
+                    });
+                });
+        });
 
-    private prepareRequest(payload: any[]) {
+    private prepareRequest(payload: any) {
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
         let content = JSON.stringify({

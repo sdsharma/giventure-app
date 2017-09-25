@@ -15,6 +15,9 @@ export function AppReducer(state: AppState = INITIAL_APP_STATE, action: Action) 
         case AppActions.RECIEVED_USER:
         	newState.user = action.payload;
         	return newState;
+        case AppActions.CREATED_USER:
+        	newState.userId = action.payload.id;
+        	return newState;
         default:
             return state;
     }
