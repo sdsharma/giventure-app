@@ -28,6 +28,22 @@ export class appEffects {
                 });
         });
 
+    @Effect() getUser$ = this.action$
+        .ofType(AppActions.GET_USER)
+        .map(toPayload)
+        .switchMap(payload => {
+            let requestURL = '/users/{$payload.id}';
+            return <Observable<any>>this._http.get(requestURL)
+                .map(this.extractData)
+                .catch(this.handleError)
+                .switchMap(result => {
+                    return Observable.of(<any>{
+                        type: AppActions.RECIEVED_USER,
+                        payload: result === undefined ? [] : result
+                    });
+                });
+        });
+
 
     private prepareRequest(payload: any[]) {
         let headers = new Headers();
