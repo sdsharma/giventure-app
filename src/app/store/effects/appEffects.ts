@@ -2,7 +2,7 @@ import { Effect, Actions, toPayload } from "@ngrx/effects";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { Http, Response, Headers } from "@angular/http";
-import { newUser } from "./../../types";
+import { newUser, loginUser, resetUser } from "./../../types";
 import { AppActions } from "../actions/appActions"
 
 @Injectable()
@@ -63,6 +63,32 @@ export class appEffects {
                     });
                 });
         });
+
+
+    @Effect() login$ = this.action$
+        .ofType(AppActions.LOGIN)
+        .map(toPayload)
+        .switchMap(payload => {
+            let requestContent = this.prepareRequest(<loginUser>payload);
+            return <Observable<any>>this._http.post(
+                '/users/login',
+                requestContent.content,
+                { headers: requestContent.headers }
+            );
+        });
+
+    @Effect() reset$ = this.action$
+        .ofType(AppActions.RESET)
+        .map(toPayload)
+        .switchMap(payload => {
+            let requestContent = this.prepareRequest(<resetUser>payload);
+            return <Observable<any>>this._http.post(
+                '/users/resetrequest',
+                requestContent.content,
+                { headers: requestContent.headers }
+            );
+        });
+
 
     private prepareRequest(payload: any) {
         let headers = new Headers();

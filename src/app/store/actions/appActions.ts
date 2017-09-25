@@ -6,4 +6,6 @@ export class AppActions {
   static RECIEVED_USER:string = "RECIEVED_USER";
   static CREATE_USER:string = "CREATE_USER";
   static CREATED_USER:string = "CREATED_USER";
+  static LOGIN:string = "LOGIN";
+  static RESET:string = "RESET";
 }
