@@ -6,7 +6,7 @@ import { newUser, loginUser, resetUser } from "./../../types";
 import { AppActions } from "../actions/appActions"
 
 @Injectable()
-export class appEffects {
+export class AppEffects {
 
 
     constructor(private action$: Actions, private _http: Http) {
@@ -74,7 +74,17 @@ export class appEffects {
                 '/users/login',
                 requestContent.content,
                 { headers: requestContent.headers }
-            );
+            )
+            .catch((err) => {
+                return Observable.of(<any>{
+                    type: AppActions.LOGIN_FAILED
+                });
+            })
+            .switchMap(result => {
+                return Observable.of(<any>{
+                    type: AppActions.LOGGED_IN
+                });
+            });
         });
 
     @Effect() reset$ = this.action$
@@ -82,7 +92,7 @@ export class appEffects {
         .map(toPayload)
         .switchMap(payload => {
             let requestContent = this.prepareRequest(<resetUser>payload);
-            return <Observable<any>>this._http.post(
+            return this._http.post(
                 '/users/resetrequest',
                 requestContent.content,
                 { headers: requestContent.headers }
@@ -93,9 +103,7 @@ export class appEffects {
     private prepareRequest(payload: any) {
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
-        let content = JSON.stringify({
-            params: payload
-        });
+        let content = JSON.stringify(payload);
         return {
             headers: headers,
             content: content

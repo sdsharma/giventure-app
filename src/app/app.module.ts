@@ -16,10 +16,15 @@ import { StoreModule, combineReducers, ActionReducer } from "@ngrx/store";
 import { EffectsModule } from '@ngrx/effects';
 
 import { AppReducer } from './store/reducers/appReducer';
+import { AppEffects } from './store/effects/appEffects';
 
 const reducers = {
   appState: AppReducer,
-}
+};
+
+const effects = [
+  EffectsModule.run(AppEffects)
+];
 
 const combinedReducers: ActionReducer<AppState> = combineReducers(reducers);
 
@@ -43,7 +48,8 @@ export function appReducers(state: AppState = INITIAL_APP_STATE, action: any) {
         ROUTING,
         SharedModule,
         CalendarModule.forRoot(),
-        StoreModule.provideStore(appReducers)
+        StoreModule.provideStore(appReducers),
+        effects
     ],
     providers: [],
     bootstrap: [AppComponent]

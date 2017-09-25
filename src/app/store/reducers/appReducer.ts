@@ -18,6 +18,12 @@ export function AppReducer(state: AppState = INITIAL_APP_STATE, action: Action) 
         case AppActions.CREATED_USER:
         	newState.userId = action.payload.id;
         	return newState;
+       	case AppActions.LOGGED_IN:
+       		newState.loggedIn = true;
+       		return newState;
+       	case AppActions.LOGIN_FAILED:
+       		newState.loggedIn = false;
+       		return newState;
         default:
             return state;
     }

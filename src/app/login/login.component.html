@@ -5,10 +5,17 @@
             Giventure
         </label>
         <div class="login-group">
-            <input class="username" type="text" id="login_username" placeholder="Username">
-            <input class="password" type="password" id="login_password" placeholder="Password">
-            <button type="submit" class="btn btn-success" [routerLink]="['/volunteer']">Login</button>
+            <form [formGroup]="model">
+                <div>
+                    <input class="username" type="text" id="login_username" placeholder="Username" formControlName="username">
+                </div>
+                <div>
+                    <input class="password" type="password" id="login_password" placeholder="Password" formControlName="password">
+                </div>
+            </form>
+            <button type="submit" class="btn btn-success" (click)="login()">Login</button>
             <a [routerLink]="['/volunteer']" routerLinkActive="active" class="signup">Register for an Account</a>
+            <a [routerLink]="['/volunteer']" routerLinkActive="active" class="signup">Reset Password</a>
         </div>
     </form>
 </div>

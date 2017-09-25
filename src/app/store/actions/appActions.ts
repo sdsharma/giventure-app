@@ -7,5 +7,7 @@ export class AppActions {
   static CREATE_USER:string = "CREATE_USER";
   static CREATED_USER:string = "CREATED_USER";
   static LOGIN:string = "LOGIN";
+  static LOGGED_IN:string = "LOGGED_IN";
+  static LOGIN_FAILED:string = "LOGIN_FAILED";
   static RESET:string = "RESET";
 }
