@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit {
   	middle_name: new FormControl(''),
   	last_name: new FormControl(''),
     phone: new FormControl(''),
+    location: new FormControl('', Validators.required),
     email: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
     birthday: new FormControl('', Validators.required)

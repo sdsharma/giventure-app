@@ -34,3 +34,15 @@ input[type=text]:not([readonly]):focus, input[type=password]:not([readonly]):foc
   color: #246a67;
   background-color: #c2eae8;
 }
+
+.modal {
+  z-index: 1 !important;
+}
+
+.modal-dialog {
+  z-index: 2 !important;
+}
+
+.modal-backdrop {
+  z-index: 1 !important;
+}
