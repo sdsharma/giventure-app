@@ -1,4 +1,4 @@
-<clr-main-container *ngIf="route == '/login'">
+<clr-main-container *ngIf="route == '/login' || route=='/'">
   <router-outlet></router-outlet>
 </clr-main-container>
 <clr-main-container *ngIf="route != '/login'">

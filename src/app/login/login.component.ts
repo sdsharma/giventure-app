@@ -45,10 +45,14 @@ export class LoginComponent implements OnInit {
 
   resetEmail() {
   	if(this.resetModel.valid) {
-  		this.reset = false;
   		this.store.dispatch({type: AppActions.RESET,
   			payload: {email: <string>this.resetModel.value.email}});
+  		this.cancelReset();
   	}
   }
 
+  cancelReset() {
+  	this.reset = false;
+  	this.resetModel.reset();
+  }
 }

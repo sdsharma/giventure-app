@@ -17,6 +17,7 @@ import { EffectsModule } from '@ngrx/effects';
 
 import { AppReducer } from './store/reducers/appReducer';
 import { AppEffects } from './store/effects/appEffects';
+import { AccessControlGuard } from './shared/guards/accesscontrol.service';
 
 const reducers = {
   appState: AppReducer,
@@ -51,7 +52,7 @@ export function appReducers(state: AppState = INITIAL_APP_STATE, action: any) {
         StoreModule.provideStore(appReducers),
         effects
     ],
-    providers: [],
+    providers: [AccessControlGuard],
     bootstrap: [AppComponent]
 })
 export class AppModule {
