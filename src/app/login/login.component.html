@@ -24,10 +24,33 @@
 <clr-modal [(clrModalOpen)]="register" [clrModalClosable]="false">
     <h3 class="modal-title">Register for a Giventure Account</h3>
     <div class="modal-body">
-        <p>Placeholder</p>
+        <form [formGroup]="signupModel">
+            <div class="modal-input">
+                <input class="username" type="text" placeholder="First Name" formControlName="first_name">
+            </div>
+            <div class="modal-input">
+                <input class="username" type="text" placeholder="Middle Name" formControlName="middle_name">
+            </div>
+            <div class="modal-input">
+                <input class="username" type="text" placeholder="Last Name" formControlName="last_name">
+            </div>
+            <div class="modal-input">
+                <input class="username" type="date" placeholder="Birthday" formControlName="birthday">
+            </div>
+            <div class="modal-input">
+                <input class="username" type="tel" placeholder="Phone Number" formControlName="phone">
+            </div>
+            <div class="modal-input">
+                <input class="username" type="email" placeholder="Email Address" formControlName="email">
+            </div>
+            <div class="modal-input">
+                <input class="password" type="password" placeholder="Password" formControlName="password">
+            </div>
+        </form>
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-primary" (click)="register = false">
+        <button type="button" class="btn btn-outline" (click)="cancelRegister()">Cancel</button>
+        <button type="button" class="btn btn-primary" (click)="registerAccount()">
             Register
         </button>
     </div>

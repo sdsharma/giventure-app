@@ -21,7 +21,17 @@ export class LoginComponent implements OnInit {
 
   resetModel: FormGroup = new FormGroup({
     email: new FormControl('', Validators.required)
-  }); 
+  });
+
+  signupModel: FormGroup = new FormGroup({
+  	first_name: new FormControl(''),
+  	middle_name: new FormControl(''),
+  	last_name: new FormControl(''),
+    phone: new FormControl(''),
+    email: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required),
+    birthday: new FormControl('', Validators.required)
+  });
 
   loggedIn: null;
 
@@ -54,5 +64,20 @@ export class LoginComponent implements OnInit {
   cancelReset() {
   	this.reset = false;
   	this.resetModel.reset();
+  }
+
+  registerAccount() {
+  	if(this.signupModel.valid) {
+  		this.store.dispatch({
+  			type: AppActions.CREATE_USER,
+  			payload: this.signupModel.value
+  		});
+  		this.cancelRegister();
+  	}
+  }
+
+  cancelRegister() {
+  	this.register = false;
+  	this.signupModel.reset();
   }
 }

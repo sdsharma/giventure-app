@@ -90,7 +90,7 @@ export interface UserEvent {
 
 // POST /users
 export interface newUser {
-	facebookid: string,
+	facebookid?: string,
 	first_name?: string,
 	middle_name?: string,
 	last_name?: string,
